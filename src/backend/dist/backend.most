@@ -1,0 +1,101 @@
+// Version: 1.0.0
+type BlogPostId__279909451 = Nat;
+type BlogPostId__289413508 = BlogPostId__279909451;
+type BlogPost__364714053 =
+  {
+    author : Text;
+    content : Text;
+    createdAt : Timestamp__263794958;
+    excerpt : Text;
+    featuredImage : Text;
+    id : BlogPostId__289413508;
+    publishedAt : Timestamp__263794958;
+    title : Text
+  };
+type Category__123678117 = {#Breakfast; #Desserts; #Dinner; #Lunch; #Vegan};
+type ContactSubmission__839243253 =
+  {
+    email : Text;
+    message : Text;
+    name : Text;
+    subject : Text;
+    submittedAt : Timestamp__263794958
+  };
+type DietaryTag__298208777 = {#GlutenFree; #Keto; #Vegan};
+type Difficulty__866680127 = {#Easy; #Hard; #Medium};
+type Ingredient__256470745 = {name : Text; quantity : Text};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Rating__617192842 =
+  {
+    comment : ?Text;
+    commenterName : Text;
+    createdAt : Timestamp__263794958;
+    recipeId : RecipeId__314922181;
+    score : Nat
+  };
+type RecipeId__181217121 = Nat;
+type RecipeId__314922181 = RecipeId__181217121;
+type RecipeSubmission__426261749 =
+  {
+    category : Category__123678117;
+    cookTime : Nat;
+    dietaryTags : [DietaryTag__298208777];
+    difficulty : Difficulty__866680127;
+    email : Text;
+    ingredients : Text;
+    instructions : Text;
+    name : Text;
+    prepTime : Nat;
+    recipeName : Text;
+    submittedAt : Timestamp__263794958
+  };
+type Recipe__1066326318 =
+  {
+    category : Category__123678117;
+    cookTime : Nat;
+    createdAt : Timestamp__263794958;
+    description : Text;
+    dietaryTags : [DietaryTag__298208777];
+    difficulty : Difficulty__866680127;
+    id : RecipeId__314922181;
+    imageUrl : Text;
+    ingredients : [Ingredient__256470745];
+    instructions : [Text];
+    name : Text;
+    prepTime : Nat
+  };
+type Timestamp__263794958 = Timestamp__301639476;
+type Timestamp__301639476 = Int;
+actor {
+  stable blogPosts :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?BlogPost__364714053]];
+      var elementIndex : Nat__490723111
+    };
+  stable contacts :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?ContactSubmission__839243253]];
+      var elementIndex : Nat__490723111
+    };
+  stable ratings :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Rating__617192842]];
+      var elementIndex : Nat__490723111
+    };
+  stable recipeSubmissions :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?RecipeSubmission__426261749]];
+      var elementIndex : Nat__490723111
+    };
+  stable recipes :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Recipe__1066326318]];
+      var elementIndex : Nat__490723111
+    }
+};

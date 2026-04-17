@@ -1,0 +1,22 @@
+{
+  "overview": "Delicious Bites is a clean, mobile-first recipe website featuring a searchable catalog of recipes with category and dietary filters, detailed recipe pages with star ratings and comments, a food blog, social sharing, and a contact/recipe submission form.",
+  "features": [
+    "Searchable recipe catalog with 5 sample recipes",
+    "Category, dietary, difficulty, and prep time filters",
+    "Recipe detail pages with ingredients, instructions, and hero images",
+    "Star ratings (1-5) and user comments on recipes",
+    "Blog section with 5 sample posts",
+    "Social sharing buttons (Instagram, Pinterest, Facebook)",
+    "Contact and recipe submission forms with validation",
+    "Mobile-first responsive design with bold visuals"
+  ],
+  "category": "food-lifestyle",
+  "tags": [
+    "recipe",
+    "food-blog",
+    "cooking",
+    "meal-planning",
+    "mobile-friendly"
+  ],
+  "last_updated": "2026-04-17T04:26:06.588Z"
+}

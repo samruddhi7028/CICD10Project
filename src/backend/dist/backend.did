@@ -1,0 +1,83 @@
+type Timestamp = int;
+type Result = 
+ variant {
+   err: text;
+   ok: text;
+ };
+type RecipeId = nat;
+type Recipe = 
+ record {
+   category: Category;
+   cookTime: nat;
+   createdAt: Timestamp;
+   description: text;
+   dietaryTags: vec DietaryTag;
+   difficulty: Difficulty;
+   id: RecipeId;
+   imageUrl: text;
+   ingredients: vec Ingredient;
+   instructions: vec text;
+   name: text;
+   prepTime: nat;
+ };
+type Rating = 
+ record {
+   comment: opt text;
+   commenterName: text;
+   createdAt: Timestamp;
+   recipeId: RecipeId;
+   score: nat;
+ };
+type Ingredient = 
+ record {
+   name: text;
+   quantity: text;
+ };
+type Difficulty = 
+ variant {
+   Easy;
+   Hard;
+   Medium;
+ };
+type DietaryTag = 
+ variant {
+   GlutenFree;
+   Keto;
+   Vegan;
+ };
+type Category = 
+ variant {
+   Breakfast;
+   Desserts;
+   Dinner;
+   Lunch;
+   Vegan;
+ };
+type BlogPostId = nat;
+type BlogPost = 
+ record {
+   author: text;
+   content: text;
+   createdAt: Timestamp;
+   excerpt: text;
+   featuredImage: text;
+   id: BlogPostId;
+   publishedAt: Timestamp;
+   title: text;
+ };
+service : {
+  addRating: (recipeId: RecipeId, score: nat, comment: opt text,
+   commenterName: text) -> (Result);
+  getBlogPost: (id: BlogPostId) -> (opt BlogPost) query;
+  getBlogPosts: () -> (vec BlogPost) query;
+  getRatings: (recipeId: RecipeId) -> (vec Rating) query;
+  getRecipe: (id: RecipeId) -> (opt Recipe) query;
+  getRecipes: (search: opt text, category: opt Category, dietaryTag:
+   opt DietaryTag, difficulty: opt Difficulty, maxPrepTime: opt nat) ->
+   (vec Recipe) query;
+  submitContact: (name: text, email: text, subject: text, message: text) ->
+   (Result);
+  submitRecipe: (name: text, email: text, recipeName: text, category:
+   Category, ingredients: text, instructions: text, difficulty: Difficulty,
+   dietaryTags: vec DietaryTag, prepTime: nat, cookTime: nat) -> (Result);
+}
